@@ -52,6 +52,10 @@ MyApp.getInitialProps = async (ctx: AppContextType) => {
   };
 };
 
-const WrappedMyApp = trpc.withTRPC(MyApp);
+import { appWithTranslation } from "next-i18next";
+
+const AppWithI18n = appWithTranslation(MyApp);
+const WrappedMyApp = trpc.withTRPC(AppWithI18n);
 
 export default WrappedMyApp;
+
